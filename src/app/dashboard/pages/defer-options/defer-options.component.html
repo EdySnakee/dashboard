@@ -1,1 +1,84 @@
-<p>defer-options works!</p>
+<app-title title="Defer Options"  />
+
+
+<!-- SE MUESTRA CUANDO EL USUARIO INTERACTURA -->
+<section>
+  <h1 class="text-xl"  >Interacciones</h1>
+  <hr class="my-2" >
+  @defer (on interaction) {
+    <app-heavy-loaders-fast cssClass="bg-rose-400  h-20">
+      <span>On Interaction</span>
+    </app-heavy-loaders-fast>
+  }@placeholder {
+    <div class="w-full h-20 bg-slate-500"  >
+      CLick en el div...
+    </div>
+  }
+</section>
+
+
+<!-- SE MUESTRA AL CLICK DEL BOTON -->
+<section>
+  <hr class="my-2" >
+  <button #btnInteraction
+   class="p-2 bg-blue-400 hover:bg-blue-800 transition-all rounded-md text-white my-2 "  >
+    Click me !
+  </button>
+  @defer (on interaction(btnInteraction)  ) {
+    <app-heavy-loaders-fast cssClass="bg-blue-400  h-20">
+      <span>On btnInteraction</span>
+    </app-heavy-loaders-fast>
+  }@placeholder {
+    <div class="w-full h-20 bg-slate-500"  >
+      CLick en el boton!
+    </div>
+  }
+</section>
+
+
+<!-- SE MUESTRA al hover -->
+<section>
+  <hr class="my-2" >
+
+  @defer (on hover ) {
+    <app-heavy-loaders-fast cssClass="bg-green-400  h-20">
+      <span>On hover</span>
+    </app-heavy-loaders-fast>
+  }@placeholder {
+    <div class="w-full h-20 bg-slate-500"  >
+      hover
+    </div>
+  }
+</section>
+
+
+<!-- SE MUESTRA tan pueda, ya que este renderizado el padre -->
+<section>
+  <hr class="my-2" >
+
+  @defer (on immediate) {
+    <app-heavy-loaders-fast cssClass="bg-red-400  h-20">
+      <span>On immediate</span>
+    </app-heavy-loaders-fast>
+  }@placeholder {
+    <div class="w-full h-20 bg-slate-500"  >
+      CLick en el boton!
+    </div>
+  }
+</section>
+
+
+<!-- SE MUESTRA DESPUES DEL TIMER -->
+<section>
+  <hr class="my-2" >
+
+  @defer (on timer(2000)) {
+    <app-heavy-loaders-fast cssClass="bg-purple-400  h-20">
+      <span>On timer</span>
+    </app-heavy-loaders-fast>
+  }@placeholder {
+    <div class="w-full h-20 bg-slate-500"  >
+      timer
+    </div>
+  }
+</section>
