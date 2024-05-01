@@ -11,7 +11,7 @@ import {
   selector: 'app-title',
   standalone: true,
   imports: [CommonModule],
-  template: ` <h1 class="text-3xl mb-4">{{ title }} | {{ whihShadow }}</h1> `,
+  template: ` <h1 class="text-3xl mb-4">|{{ title }}</h1> `,
   styles: `
     :host {
       display: block;
