@@ -1,13 +1,17 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  booleanAttribute,
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  input,
+} from '@angular/core';
 
 @Component({
   selector: 'app-title',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
-  templateUrl: './title.component.html',
+  imports: [CommonModule],
+  template: ` <h1 class="text-3xl mb-4">{{ title }} | {{ whihShadow }}</h1> `,
   styles: `
     :host {
       display: block;
@@ -15,4 +19,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TitleComponent { }
+export class TitleComponent {
+  @Input({ required: true }) title!: string;
+  @Input({ transform: booleanAttribute }) whihShadow: boolean = false;
+}
